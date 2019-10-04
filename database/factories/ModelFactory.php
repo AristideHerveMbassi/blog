@@ -42,3 +42,18 @@ $factory->define(App\Models\Profile::class, function (Faker\Generator $faker) {
         'github_username'  => $faker->userName,
     ];
 });
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence,
+        'description' => $faker->text,
+
+    ];
+});
+
+$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence,
+        'description' => $faker->text,
+
+    ];
+});

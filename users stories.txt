@@ -1,0 +1,23 @@
+As user I should create a category for a post
+A category should be unqiue
+A Category should have a name
+A category  should have a description 
+A description must have 10 characters in min.
+
+
+
+Articls entity
+
+- Title  _minimum de 10 caracters string
+- slug string 
+- Meta description 130 caractères _minimum  et 250 maximum text
+- Social media Title 100 maximum string
+-contenu  long text 
+- Published_date date
+- Published boolean
+- Author (many to one) string
+- Tag (many to many) string
+- Categorie (many to many) string
+
+
+-On delete (cascade)

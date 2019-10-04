@@ -14,6 +14,9 @@
 */
 
 // Homepage Route
+
+use App\Http\Controllers\PageAdminController;
+
 Route::group(['middleware' => ['web', 'checkblocked']], function () {
     Route::get('/', 'WelcomeController@welcome')->name('welcome');
 });
@@ -129,3 +132,14 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
 });
 
 Route::redirect('/php', '/phpinfo', 301);
+
+
+
+//another route
+
+
+
+Route::resource('category', 'CategoryController');
+Route::resource('tag', 'TagController');
+Route::resource('article', 'ArticleController');
+Route::get('dashboard-admin/home', 'PageAdminController@index')->name('home-dashboard');
