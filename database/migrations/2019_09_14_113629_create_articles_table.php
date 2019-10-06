@@ -23,8 +23,8 @@ class CreateArticlesTable extends Migration
             $table->longText('content');
             $table->boolean('published');
 
-            $table->unsignedBigInteger('author');
-            $table->foreign('author')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
             $table->dateTime('published_date');

@@ -30,8 +30,6 @@ class Article extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'published',
-        'published_date'
 
     ];
 
@@ -55,6 +53,8 @@ class Article extends Model
         'slug',
         'meta_description',
         'social_media_title',
+        'published',
+        'published_date',
         
         
     ];

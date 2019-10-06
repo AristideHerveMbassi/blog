@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
 use App\Logic\SEO\Seo;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -39,24 +40,27 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(ArticleRequest $request)
-    {   
-               /**     $inputs = array([
+    {
 
+        $article = new Article ;
 
-                        'name',
-                        'meta_description',
-                        'social_media_title',
-                        'content',
-                        'published',
-                        'published_date',
-                        'author',
+        $article->name = $request->name;
+        $article->social_media_title = $request->social_media_title;
+        $article->social_media_image = $request->featured_image;
+        $article->content = $request->content;
+        $article->meta_description = $request->meta_description;
+        if($request->published =="on"){
+        $article->published = 1;
+        } else {
+            $article->published = 0;
+        }
+        $article->published_date = $request->published_date;
+        $article->featured_image = $request->featured_image;
+        $article->author()->associate(Auth::user()->id);
 
-                        ]);
-                    $data = $request->only($inputs);
-                * */
+        $article->save();
 
-
-        return dump($request->all());
+        return $article;
     }
 
     /**
@@ -68,7 +72,7 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $data = Article::findOrFail($slug);
-       
+
         return $data;
     }
 

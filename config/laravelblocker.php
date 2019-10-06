@@ -14,7 +14,7 @@ return [
     | Laravel Blocker Database Settings
     |--------------------------------------------------------------------------
     */
-    'blockerDatabaseConnection'     => env('LARAVEL_BLOCKER_DATABASE_CONNECTION', 'pgsql'),
+    'blockerDatabaseConnection'     => env('LARAVEL_BLOCKER_DATABASE_CONNECTION', 'mysql'),
     'blockerDatabaseTable'          => env('LARAVEL_BLOCKER_DATABASE_TABLE', 'laravel_blocker'),
     'blockerTypeDatabaseTable'      => env('LARAVEL_BLOCKER_TYPE_DATABASE_TABLE', 'laravel_blocker_types'),
     'seedDefaultBlockedTypes'       => env('LARAVEL_BLOCKER_SEED_DEFAULT_TYPES', true),

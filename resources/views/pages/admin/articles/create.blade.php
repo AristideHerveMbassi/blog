@@ -15,7 +15,7 @@
 
 @section('content')
 
-    <form  method="POST" action="{{route('article.store')}}">
+    <form  method="POST" action="{{route('article.store')}} " enctype="multipart/form-data">
         @csrf
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
@@ -35,7 +35,7 @@
                             <div class="kt-section--first">
                                 <div class="form-group">
 
-                                    <input type="text" name="titre" id="name"  class="input-lg text-20 form-control" placeholder="Titre de l'article">
+                                    <input type="text" name="name" id="name"  class="input-lg text-20 form-control" placeholder="Titre de l'article">
                                     <span class="form-text text-muted">Entrez le titre de l'article  s'il vous plait</span>
                                 </div>
 
@@ -79,23 +79,13 @@
                             <div class="kt-section--first">
                                 <div class="form-group">
 
-                                    <input type="text" name="social_titre" id="name"  class="input-lg text-20 form-control" placeholder="Titre réseaux sociaux">
+                                    <input type="text" name="social_media_title" id="social_media_title"  class="input-lg text-20 form-control" placeholder="Titre réseaux sociaux">
                                     <span class="form-text text-muted">Entrez le titre de l'article pour les réseaux sociaux s'il vous plait</span>
                                 </div>
                                 <div class="form-group">
 
-                                    <textarea name="social_meta" class="form-control"></textarea>
+                                    <textarea name="meta_description" class="form-control"></textarea>
                                     <span class="form-text text-muted">Entrez la description s'il vous plait. Elle corespond au message qui apparait en général en dessous du titre lors du partage de l'article. <br> Pour plus d'informations <strong>cliquez ici</strong></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <div></div>
-                                    <div class="custom-file">
-                                        <input type="file" name="social_image" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Image reseaux sociaux</label>
-                                        <span class="form-text text-muted">Choissiez l'image ( <strong> 1200 x 500 pixels idealemnt) </strong> pour les réseaux sociaux.Elle represente l'image à afficher quand vous partagez vos articles sur les reseaux sociaux. <br> Pour plus d'informations <strong>cliquez ici</strong></span>
-
-                                    </div>
                                 </div>
 
                             </div>
@@ -119,7 +109,7 @@
                             <div class="kt-section--first">
                                 <div class="form-group">
 
-                                     <textarea name="editor1" id="editor1" rows="1000" cols="80">
+                                     <textarea name="content" id="editor1" rows="1000" cols="80">
                 This is my textarea to be replaced with CKEditor.
             </textarea>
                                     <script>
@@ -182,7 +172,7 @@
                                         <div class="col-3">
                                             <span class="kt-switch kt-switch--sm kt-switch--icon">
 											<label>
-											<input type="checkbox"  name="publier_statut">
+											<input type="checkbox"  name="published">
 											<span></span>
                                             </label>
 											</span>
@@ -193,7 +183,7 @@
                                         <label class="col-form-label col-lg-12 col-sm-12">Date de publication</label>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="input-group date">
-                                                <input type="text" name="date_publication" class="form-control" readonly value="1899-11-29 00:30" id="kt_datetimepicker_3" />
+                                                <input type="text" name="published_date" class="form-control" readonly value="1899-11-29 00:30" id="kt_datetimepicker_3" />
                                                 <div class="input-group-append">
 														<span class="input-group-text">
 															<i class="la la-calendar glyphicon-th"></i>
@@ -222,7 +212,9 @@
                     </div>
 
                     <!--end::Accordion-->
-                    <!--begin::Accordion-->
+
+                    
+                    <!--begin:: article featured image -->
                     <div class="accordion accordion-solid accordion-toggle-svg mt-5" id="accordionExample8">
                         <div class="card">
                             <div class="card-header" id="headingOne8">
@@ -251,34 +243,14 @@
 
 
                                                             <div class="input-group">
-                                                                                   <span class="input-group-btn">
-                                                                                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                                                                   <span class="input-group-btn btn-brand">
+                                                                                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-brand">
                                                                                        <i class="fa fa-picture-o"></i> Choose
                                                                                      </a>
                                                                                    </span>
-                                                    <input id="thumbnail" class="form-control" type="text" name="filepath">
+                                                    <input id="thumbnail" class="form-control" type="text" name="featured_image">
                                                 </div>
-                                                <img id="holder" style="margin-top:15px;max-height:100px;">
-
-
-
-
-
-
-                                                <div id="kt_apps_user_add_avatar" class="kt-avatar kt-avatar--outline">
-                                                    <div class="kt-avatar__holder" id="holder"></div>
-                                                    <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                                                        <i class="fa fa-pen"></i>
-                                                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                                                        </a>
-                                                    </label>
-
-                                                    <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
-																				<i class="fa fa-times"></i>
-																			</span>
-
-                                                </div>
+                                               
                                                 <span class="form-text text-muted">Choissiez l'image  principale de votre article.</span>
 
                                             </div>
@@ -292,7 +264,7 @@
 
                     </div>
 
-                    <!--end::Accordion-->
+                    <!--end:: article featured image -->
 
 
 
